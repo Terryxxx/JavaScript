@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>if else</title>
+</head>
+<body>
+    <p>单击按钮获取当前时间问候</p>
+    <button onclick="myFunction()">Click me</button>
+
+    <script>
+        var time = new Date().getHours();
+        function myFunction(){
+            if(time < 10)
+            {
+                alert("Good morning.");
+            }
+            else if(time < 20)
+            {
+                alert("Good day.");
+            }
+            else
+            {
+                alert("Good evening.");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>循环</title>
+</head>
+
+<body>
+    <input type="text" id="name">
+
+    <input type="button" name="Print" id="print" value="Print" onclick="printName()">
+
+    <p id="demo"></p>
+    <script>
+        function printName() {
+            cars = ["BMW", "Volvo", "Saab", "Ford"];
+            // for (var i = 0; i < cars.length - 1; i++) {
+            //     document.writeln(cars[i] + "<br>");
+            // }
+            //var i = 2,len =cars.length;
+            // for(; i<len;i++){
+            //     document.write(cars[i] + "<br>")
+            // }
+
+            //For / In
+            var x;
+            var txt="";
+            var person={fname:"Bill",lname:"Gates",age:56}; 
+            
+            for (x in person)
+            {
+            txt=txt + person[x];
+            }
+            
+            document.getElementById("demo").innerHTML=txt;
+        }
+    </script>
+</body>
+
+</html>

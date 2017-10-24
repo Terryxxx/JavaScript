@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Switch</title>
+</head>
+
+<body>
+    <p>点击下面按钮显示今天是周几：</p>
+    <button onclick="myFunction()">Click me</button>
+
+    <script>
+        var day = new Date().getDay();
+
+        function myFunction() {
+            switch (day) {
+                case 0:
+                    alert("Today it's Sunday.");
+                    break;
+                case 1:
+                    alert("Today it's Monday.");
+                    break;
+                case 2:
+                    alert("Today it's Tuesday.");
+                    break;
+                case 3:
+                    alert("Today it's Wednesday.");
+                    break;
+                case 4:
+                    alert("Today it's Thursday.");
+                    break;
+                case 5:
+                    alert("Today it's Friday.");
+                    break;
+                case 6:
+                    alert("Today it's Saturday.");
+                    break;
+                default:
+                    alert("Looking forward to.");
+            }
+        }
+    </script>
+</body>
+
+</html>

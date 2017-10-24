@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript 表单验证</title>
+    <script type="text/javascript">
+        function validate_reqiured(filed, alerttext) {
+            with(filed) {
+                if (value == null || value == "") {
+                    alert(alerttext);
+                    return false
+                } else {
+                    return true
+                }
+            }
+        }
+
+        function validate_email(field, alerttxt) {
+            with(field) {
+                apos = value.indexOf("@")
+                dotpos = value.lastIndexOf(".")
+                if (apos < 1 || dotpos - apos < 2) {
+                    alert(alerttxt);
+                    return false
+                } else {
+                    return true
+                }
+            }
+        }
+
+        function validate_form(thisform) {
+            with(thisform) {
+                if (validate_reqiured(email, "Email must be filedout!") == false) {
+                    email.focus();
+                    return false
+                }
+                if (validate_email(email, "Not a valid e-mail address!") == false) {
+                    email.focus();
+                    return false
+                }
+            }
+        }
+        
+    </script>
+
+</head>
+
+<body>
+    <form action="" method="post" onsubmit="return validate_form(this)">
+        Email:
+        <input type="text" name="email" size="30">
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>

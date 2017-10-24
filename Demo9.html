@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Break Continue</title>
+</head>
+<body>
+    <p>Break</p>
+    <button type="button" onclick="myBreak()">Click me</button>
+    <p id="break"></p>
+
+    <p>Continue</p>
+    <button type="button" onclick="myContinue()">Click me</button>
+    <p id="Continue"></p>
+
+    <script>
+        var x ="" , i = 0;
+        function myBreak(){
+            for(; i < 10 ; i++){
+                if(i == 3){
+                    break;
+                }
+                x += "The number is "+ i + "<br>";
+            }
+            document.getElementById("break").innerHTML = x;
+        }
+
+        function myContinue(){
+            for(; i< 10; i++){
+                if(i == 3){
+                    continue;
+                }
+                x += "The number is "+ i + "<br>";
+            }
+            document.getElementById("Continue").innerHTML = x;
+        }
+    </script>
+</body>
+</html>
