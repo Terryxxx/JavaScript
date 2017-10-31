@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Demo12</title>
+
+</head>
+
+<body>
+
+    <input type="number" id="num" max="100" min="10" required onblur="myFunction()">
+    <input type="submit" id="submit" onclick="myFunction()">
+    <p id="demo"></p>
+
+    
+
+    <script>
+            function myFunction(){
+                var obj = document.getElementById("num");
+                if(obj.checkValidity() == false){
+                    document.getElementById("demo").innerHTML = obj.validationMessage;
+                }else{
+                    document.getElementById("demo").innerHTML = "Insert correct.";
+                }
+            }
+        </script>
+</body>
+
+</html>

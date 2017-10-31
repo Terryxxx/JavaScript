@@ -1,0 +1,55 @@
+.container{
+    margin-top: 200px;
+}
+
+form{
+    margin: auto;
+    width: 300px;
+}
+
+.btn:hover{
+    background-color: green;
+}
+
+.btn:active{
+    background-color: red;
+}
+
+.tip-box{
+    height: 25px;
+    width: 100%;
+    margin-top: -5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    background: #ffd1ca;
+    position:relative;
+}
+
+.err-ico{
+    background: url("../../img/error-ico.png");
+    background-repeat: no-repeat;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    margin-left: 3px;
+    margin-top: 3px;
+}
+
+.close-ico{
+    background: url("../../img/close-ico.png");
+    background-repeat: no-repeat;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+
+.tip-font{
+    position:absolute;
+    color: #666;
+    font-size: 12px;
+    line-height: 25px;
+  
+}
