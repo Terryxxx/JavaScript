@@ -10,39 +10,55 @@
 </head>
 
 <body>
+    <div class="header">
+
+    </div>
+    <div id="mySidenav" class="sidenav">
+        <a href="#" id="about">About</a>
+        <a href="#" id="blog">Blog</a>
+        <a href="#" id="projects">Projects</a>
+        <a href="#" id="contact">Contact</a>
+    </div>
     <div class="container">
-        <form action="" role="form">
+        <form action="" role="form" id="mainForm">
             <div class="form-group">
-                <input type="text" id="name" class="form-control" placeholder="Name">
-            </div>
-            <div class="tip-box">
-                <i class="err-ico"></i>
-                <span class="tip-font">qwe</span>
+                <input type="text" id="name" class="form-control" placeholder="Name" autocomplete="off">
             </div>
 
             <div class="form-group">
-                <input type="password" id="password" class="form-control" placeholder="Password">
+                <input type="password " id="password" class="form-control" placeholder="Password" autocomplete="off">
             </div>
 
             <div class="form-group">
-                <input type="password" id="password2" class="form-control" placeholder="Confirm Password">
+                <input type="password" id="password2" class="form-control" placeholder="Confirm Password" autocomplete="off">
+            </div>
+
+
+            <div class="form-group">
+                <input type="email" id="email" class="form-control" placeholder="Email" autocomplete="off">
+            </div>
+
+            <div class="progress">
+                <div class="progress-bar names" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                </div>
+                <div class="progress-bar pwds" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                </div>
+                <div class="progress-bar cpwds" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                </div>
+                <div class="progress-bar emails" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                </div>
             </div>
 
             <div class="form-group">
-                <input type="email" id="email" class="form-control" placeholder="Email">
+                <input type="submit" value="Submit" id="submit" class="btn btn-default">
+                <input type="reset" value="Reset" id="reset" class="btn btn-default">
             </div>
-
-            <div class="form-group">
-                <input type="submit" value="Submit" id="submit" class="btn btn-defalut">
-            </div>
-
         </form>
     </div>
 
-
-    <link rel="stylesheet" href="../JavaScript/bootstrap/css/bootstrap.min.css">   
-    <script src="../JavaScript/bootstrap/js/jquery-1.10.2.min.js"></script>
-    <script src="../JavaScript/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../JavaScript/bootstrap/css/Demo13.css">
     <script src="../JavaScript/bootstrap/js/Demo13.js"></script>
 </body>

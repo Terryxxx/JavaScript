@@ -1,29 +1,26 @@
+
 .container{
-    margin-top: 200px;
+    margin-top: 100px;
 }
+
 
 form{
     margin: auto;
     width: 300px;
 }
 
-.btn:hover{
-    background-color: green;
-}
 
-.btn:active{
-    background-color: red;
+#reset{
+    float: right;
 }
 
 .tip-box{
-    height: 25px;
-    width: 100%;
-    margin-top: -5px;
-    margin-bottom: 10px;
+    margin-top: 5px;
+    margin-bottom: -10px;
     border-radius: 5px;
-    border: 1px solid gray;
+    border: 0px solid gray;
     background: #ffd1ca;
-    position:relative;
+    line-height: 1;
 }
 
 .err-ico{
@@ -32,24 +29,103 @@ form{
     cursor: pointer;
     width: 16px;
     height: 16px;
+    line-height: 25px;
     display: inline-block;
-    margin-left: 3px;
-    margin-top: 3px;
-}
-
-.close-ico{
-    background: url("../../img/close-ico.png");
-    background-repeat: no-repeat;
-    cursor: pointer;
-    width: 16px;
-    height: 16px;
-    display: inline-block;
+    margin: 5px 0 0 5px;
 }
 
 .tip-font{
-    position:absolute;
-    color: #666;
+    display:inline-block; 
+    color: red;
     font-size: 12px;
+    font-weight: bold; 
     line-height: 25px;
-  
+    position: absolute;
+    padding: 2px 0 0 5px;
+
+}
+
+.right{
+    background:url("../../img/close-ico.png") no-repeat right;
+}
+
+.btn:hover{
+    background-color: green;
+}
+
+.header{
+    width:100px;
+    height: 100px;
+    background: red;
+    position: relative;
+    animation-name:myfirst;
+	animation-duration:5s;
+	animation-timing-function:linear;
+	animation-delay:0s;
+	animation-iteration-count:infinite;
+	animation-direction:alternate;
+	animation-play-state:running;
+
+	-webkit-animation-name:myfirst;
+	-webkit-animation-duration:5s;
+	-webkit-animation-timing-function:linear;
+	-webkit-animation-delay:0s;
+	-webkit-animation-iteration-count:infinite;
+	-webkit-animation-direction:alternate;
+	-webkit-animation-play-state:running;
+}
+
+@keyframes myfirst
+{
+	0%   {background:red; left:0px; top:0px;transform: rotate(36deg);}
+	25%  {background:yellow; left:25%; top:0px;transform: rotate(72deg);}
+	50%  {background:blue; left:50%; top:0px;transform: rotate(108deg);}
+	75%  {background:green; left:75%; top:0px;transform: rotate(144deg);}
+	100% {background:red; left:100%; top:0px;transform: rotate(180deg);}
+}
+
+@-webkit-keyframes myfirst /* Safari and Chrome */
+{
+	0%   {background:red; left:0px; top:0px;transform: rotate(36deg);}
+	25%  {background:yellow; left:25%; top:0px;transform: rotate(72deg);}
+	50%  {background:blue; left:50%; top:0px;transform: rotate(108deg);}
+	75%  {background:green; left:75%; top:0px;transform: rotate(144deg);}
+	100% {background:red; left:100%; top:0px;transform: rotate(180deg);}
+}
+
+#mySidenav a {
+    margin-top: 180px;
+    position: absolute;
+    left: -80px;
+    transition: 0.13s;
+    padding: 15px;
+    width: 100px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    border-radius: 0 5px 5px 0;
+}
+
+#mySidenav a:hover {
+    left: 0;
+}
+
+#about {
+    top: 20px;
+    background-color: #4CAF50;
+}
+
+#blog {
+    top: 80px;
+    background-color: #2196F3;
+}
+
+#projects {
+    top: 140px;
+    background-color: #f44336;
+}
+
+#contact {
+    top: 200px;
+    background-color: #555
 }
