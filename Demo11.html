@@ -44,6 +44,25 @@
             }
         }
         
+        function validate_nameForm(){
+            var x = document.forms["myForm"]["fname"].value;
+            if(x == null || x == ""){
+                alert("need to enter name.");
+                return false;
+            }
+        }
+
+        function myFunction(){
+            var x , text;
+            x = document.getElementById("numb").value;
+
+            if(isNaN(x) || x < 1 || x > 10){
+                text = "error";
+            }else{
+                text = "correct.";
+            }
+            document.getElementById("demo").innerHTML = text;
+        }
     </script>
 
 </head>
@@ -54,6 +73,21 @@
         <input type="text" name="email" size="30">
         <input type="submit" value="Submit">
     </form>
+    <br>
+    <form action="" method="post" name="myForm" onsubmit="return validate_nameForm()">
+        名字: <input type="text" name="fname">
+        <input type="submit" value="提交">
+    </form>
+    <br>
+    <h1>JavaScript 验证输入</h1>
+    
+    <p>请输入 1 到 10 之间的数字：</p>
+    
+    <input id="numb">
+    
+    <button type="button" onclick="myFunction()">提交</button>
+    
+    <p id="demo"></p>
 </body>
 
 </html>
