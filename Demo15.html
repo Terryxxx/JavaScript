@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cookies</title>
+
+    <script type="text/javascript">
+        function WriteCookies(){
+            if(document.myForm.customer.value == ""){
+                alert("Enter some values!");
+                return;
+            }
+            cookiesValues = escape(document.myForm.customer.value) + ";";
+            document.cookie = "name=" + cookiesValues;
+            //document.write("Setting Cookies : " + "name=" + cookiesValues);
+        }
+
+        function ReadCookies(){
+            var allCookies = document.cookie;
+            document.write("All cookies : " + allCookies);
+            cookieArray = allCookies.split(';');
+
+            for(var i = 0 ; i < cookieArray.length; i++){
+                name = cookieArray[i].split('=')[0];
+                value = cookieArray[i].split('=')[1];
+                document.write("Key is : " + name + " and value is : " + value);
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <form action="" name="myForm">
+        Enter name: <input type="text" name="customer" id="name">
+        <input type="button" value="Set Cookies" onclick="WriteCookies()">
+
+        <p>Click the following button and see the result:</p>
+        <input type="button" value="Get Cookies" onclick="ReadCookies()">
+    </form>
+    <div style="width:100%;background-color:red;height:100px;">
+
+    </div>
+    <div style="width:100%;background-color:green;height:100px;">
+            
+                </div>
+</body>
+</html>

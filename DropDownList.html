@@ -1,24 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>HTML CSS JavaScript DropDownList</title>
 </head>
+
 <body>
-    <div>
-        <div class="title">
-            Click Here
-        </div>
-        <div class="body">
-            <h2>Just look at the arrow above</h2>
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, 
-            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. 
-            <br>
-            <br>
-            <span>Create by: <a href="www.baidu.com">Terry Xu</a></span>
+    <div class="body">
+        <button class="accordion">选项 1</button>
+        <div class="panel">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat.</p>
         </div>
     </div>
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].onclick = function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="../JavaScript/bootstrap/css/DropDownList.css">
 </body>
+
 </html>
