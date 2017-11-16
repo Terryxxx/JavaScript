@@ -1,13 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+
+    <style>
+        .special {
+            color: red;
+            font-style: italic;
+        }
+
+        p.special {
+            text-transform: uppercase;
+        }
+    </style>
+
 </head>
+
 <body>
-   <!-- <script>
+    <!-- <script>
     //    var x= 2;
     //    var y = 3;
     //    var z =x + y;
@@ -26,18 +40,23 @@
     document.write(answer + "<br>");
    </script> -->
 
-   <p>点击这里来创建变量，并显示结果。</p>
-   
-   <button onclick="myFunction()">点击这里</button>
-   
-   <p id="demo"></p>
-   
-   <script>
-   function myFunction()
-   {
-   var carname="Volvo";
-   document.getElementById("demo").innerHTML=carname;
-   }
-   </script>
+    <p class="special">点击这里来创建变量，并显示结果。</p>
+
+    <button onclick="myFunction()">点击这里</button>
+
+    <p id="demo" class="special"></p>
+    <h1 class="special">asdasdasdasd</h1>
+
+    <script>
+        function myFunction() {
+            var carname = "Volvo";
+
+            var demo = document.getElementById("demo");
+            demo.setAttribute("title","green");
+            demo.innerHTML = carname;
+            // document.getElementById("demo").innerHTML = carname;
+        }
+    </script>
 </body>
+
 </html>

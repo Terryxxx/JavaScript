@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript DOM</title>
+
+    <script>
+        window.onload = function(){
+            if(!document.getElementsByTagName) return false;
+            var links = document.getElementsByName("a");
+            for(var i = 0; i < links.length; i++){
+                if(links[i].getAttribute("class") == "popup"){
+                    links[i].onclick = function(){
+                        popUp(this.getAttribute("href"));
+                        return false;
+                    }
+                }
+            }
+        }
+
+        // var links = document.getElementsByTagName('a');
+        // for(var i = 0; i < links.length; i++){
+        //     if(links[i].className == "popup"){
+        //         links[i].onclick = function(){
+        //             popUp(this.getAttribute('href'));
+        //             return false;
+        //         }
+        //     }
+        // }
+
+        function popUp(url){
+            window.open(url,"popup","width=500,height=500");
+        }
+    </script>
+
+</head>
+<body>
+    <!-- javascript： 伪协议 -->
+    <a href="javascript:popUp('http://www.baidu.com')">Example</a>
+    <br>
+    <a href="#" onclick="popUp('http://www.baidu.com'); return false;">Example2</a>
+    <br>
+    <a href="http://www.baidu.com" onclick="popUp(this.getAttribute('href')); return false;">
+        Example3
+    </a>
+    <br>
+    <a href="http://www.baidu.com" onclick="popUp(this.href);return false;">Example4</a>
+    <br>
+    <a href="http://baidu.com" class="popup">Example5</a>
+
+</body>
+</html>
