@@ -1,11 +1,36 @@
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-color: #eae9d9;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
 li{
     cursor: pointer;
 }
 
-.row{
-    background: url('https://img13.360buyimg.com/cms/jfs/t7597/28/4532502614/686435/a4cf84c3/5a0188ddN777b4d18.png!q80.webp') no-repeat;
+.box{
+    margin-top: 10px;  
+    background-color: #00ffff;
+    border-radius: 5px;
 }
 
-.pic{
-    margin-top: 60px;
+.box1{
+    left: -1px;;
+}
+
+.box3{
+    right: -1px;
+}
+
+.title{
+    color: #508cc9;
+    font-family: "隶书";
+    text-align: center;
 }

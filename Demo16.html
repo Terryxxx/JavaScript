@@ -35,8 +35,8 @@
         </div>
     </div>
 
-    <div class="pic">
-        <div id="myCarousel" class="carousel slide">
+    <div class="pic container body-content">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
             <!-- 轮播（Carousel）指标 -->
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -61,17 +61,39 @@
                 </div>
             </div>
             <!-- 轮播（Carousel）导航 -->
-            <a class="carousel-control left" href="#myCarousel" data-slide="prev"></a>
-            <a class="carousel-control right" href="#myCarousel" data-slide="next"></a>
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
     </div>
 
-    <!-- <div class="container body-content">
-        <hr />
-        <footer>
-            <p>&copy;</p>
-        </footer>
-    </div> -->
+    <div class="container body-container">
+        <div class="col-md-4 box box1">
+            <div class="title">
+                <h1>HTML5</h1>
+            </div>
+            <div class="">
+
+            </div>
+        </div>
+
+        <div class="col-md-4 box">
+            <div class="title">
+                <h1>CSS3</h1>
+            </div>
+        </div>
+
+        <div class="col-md-4 box box3">
+            <div class="title">
+                <h1>JavaScript</h1>
+            </div>
+        </div>
+    </div>
 
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
