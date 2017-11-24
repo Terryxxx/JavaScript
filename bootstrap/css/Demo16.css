@@ -11,26 +11,29 @@ body {
     padding-right: 15px;
 }
 
+.row{
+    margin-top: 10px;
+}
+
+
 li{
     cursor: pointer;
+    list-style: none;
 }
 
-.box{
-    margin-top: 10px;  
-    background-color: #00ffff;
-    border-radius: 5px;
+li.title:after {
+    content: '\002B';
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
 }
 
-.box1{
-    left: -1px;;
+li.title.active::after{
+    content: "\2212";
 }
 
-.box3{
-    right: -1px;
-}
-
-.title{
-    color: #508cc9;
-    font-family: "隶书";
-    text-align: center;
+.panel-collapse {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1s ease-out; /*过渡*/
 }
