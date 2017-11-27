@@ -6,6 +6,7 @@ $(function () {
         acc[i].onclick = function () {
             //this.classList.toggle("active");
             this.firstChild.nextElementSibling.firstElementChild.classList.toggle("active");
+            //$(".title").toggleClass("active");
             var panel = this.nextElementSibling;
             if (panel.style.maxHeight) {
                 panel.style.maxHeight = null;
@@ -14,6 +15,8 @@ $(function () {
             }
         }
     }
+
+    
 
     $('.register').on('click',function(){
         window.location.href ='D:/GitProject/JavaScript/Demo13.html';
