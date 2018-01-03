@@ -8,6 +8,8 @@ def tick():
  
  
 #每隔三秒执行一次
+
+
 if __name__ == '__main__':
     scheduler = BlockingScheduler()
     scheduler.add_job(tick,'cron',second='*/3',hour='*')
