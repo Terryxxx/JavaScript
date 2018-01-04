@@ -49,35 +49,76 @@
 // console.log(person2.constructor)
 
 
-/**
- * 构造函数
- * 
- * @param {any} name 
- * @param {any} age 
- * @param {any} job 
- */
+// /**
+//  * 构造函数
+//  * 
+//  * @param {any} name 
+//  * @param {any} age 
+//  * @param {any} job 
+//  */
+// function Person(name, age, job){
+//     this.name = name;
+//     this.age = age;
+//     this.job = job;
+
+//     this.sayName = function(){
+//         console.log(this.name);
+//     };
+// }
+
+// // function sayName{
+// //     console.log(this.name);    
+// // };
+
+// var person1 = new Person('Xu', 18, 'engineer');
+// var person2 = new Person('Xi', 19, 'Engineer');
+
+// person1.sayName();
+// person2.sayName();
+
+// console.log(person1.constructor);
+// console.log(person2.constructor);
+
+// console.log(person1 instanceof Person);
+// console.log(person2 instanceof Person);
+// // 虽然构造函数非常好用，但是并非没有缺点，使用构造函数的主要问题，就是每个方法都要在每个实例上重新创建一遍，上述例子中，p1和p2的sayName被创建了两遍，这两个函数并不相等：
+// // console.log(p1.sayName == p2.sayName);//false
+// // 创建两个相同的函数并没有必要，可以把sayName函数移到构造函数外部来解决这个问题：
+
+// // function Person(name, age, job){
+// //     this.name = name;
+// //     this.age = age;
+// //     this.job = job;
+// // }
+
+
+// // 这样又带来了新的问题：全局变量中定义的函数实际上只能被某个对象调用，这让全局作用域名不副实。
+// // 如果对象需要定义很多方法，那么就需要定义很多全局函数，于是这个自定义的引用类型就毫无封装性可言了。
+// // 可以用原型模式来解决这些问题。
+
+
 function Person(name, age, job){
     this.name = name;
-    this.age = age;
+    this.age = age;    
     this.job = job;
-
-    this.sayName = function(){
-        console.log(this.name);
-    };
 }
 
-var person1 = new Person('Xu', 18, 'engineer');
-var person2 = new Person('Xi', 19, 'Engineer');
+Person.prototype.gender = 'Boy';
 
-person1.sayName();
-person2.sayName();
+Person.prototype.sayName = function(){
+    console.log(tshi.name);    
+};
 
-console.log(person1.constructor);
-console.log(person2.constructor);
+var person1 = new Person('xu', 18, 'engineer');
+var person2 = new Person('Joyce', 18, 'engineer');
 
-console.log(person1 instanceof Person);
-console.log(person2 instanceof Person);
-// 虽然构造函数非常好用，但是并非没有缺点，使用构造函数的主要问题，就是每个方法都要在每个实例上重新创建一遍，上述例子中，p1和p2的sayName被创建了两遍，这两个函数并不相等：
-// console.log(p1.sayName == p2.sayName);//false
-// 创建两个相同的函数并没有必要，可以把sayName函数移到构造函数外部来解决这个问题：
+console.log(person1);
+console.log(person2);
+
+person2.gender = 'Girl';
+console.log(person2);
+
+console.log(person1.hasOwnProperty("name"));
+console.log(person1.hasOwnProperty("gender"));
+console.log(person2.hasOwnProperty("gender"));
 
