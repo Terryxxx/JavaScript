@@ -1,0 +1,78 @@
+<!--
+Created Date: Monday January 15th 2018
+Author: Terry Xu
+Last Modified:
+Modified By:
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>I'm thinking of a number........</title>
+    <script>
+        window.onload = newgame;
+        window.onpopstate = popState;
+        var state, ui;
+
+        function newgame(){
+            //初始化一个包含需要的文档元素的对象
+            ui = {
+                heading: null,
+                prompt: null,
+                input: null,
+                low: null,
+                mid: null,
+                high: null
+            };
+            //查询这些元素中每个元素的id
+            for(var id in ui) ui[id] = document.getElementById(id);
+
+            //给input字段定义一个事件处理程序函数
+            ui.input.onchange = handleGuess;
+
+            //生成一个随机的数字并且初始化游戏状态
+            state = {
+                n: Math.floor(99 * Math.random()) + 1, //正数 0 < n < 100
+                low: 0,             //可猜测数字范围下限
+                high: 100,          //可猜测数字范围上限
+                guessnum: 0,        //猜测次数
+                guess: undefined    //最后一次猜测                
+            };
+
+            //修改当前文档内容来显该初始状态
+            display(state);
+
+            //此函数会作为onload事件处理程序调用，
+            //同时当单击显示再游戏最后的“再玩一次”按钮时候，也会调用它
+            //在第二种调用情况下，palyagain参数值为true
+            //如果playagain为true， 则保存新的游戏状态
+            //但是如果是作为onload事件处理程序调用的情况下，则不保存状态
+            //这是因为，当通过浏览器历史记录从其他文档状态回退到当前的游戏状态时，
+            //也会出发onload事件。 如果这种情况下，也保存状态的话
+            //会将其真正的游戏历史状态记录覆盖掉
+            //在支持pushState()方法的浏览器中，load事件之后总是有一个popstate事件
+            //因此，这里的处理方法是，等待popstate事件而不是直接进行状态保存
+            //如果该事件提供一状态对象，则直接使用该对象即可
+            //如果该事件没有状态对象，就表示是实际上是一个新的游戏
+            //则使用replaceState来保存最新的游戏状态
+            if(playagian === null) Save(state);
+        }
+    </script>
+</head>
+<body>
+    <h1 id="heading">I'm thinking of a number.....</h1>
+
+    <table>
+        <tr>
+            <td id="low"></td>
+            <td id="mid"></td>
+            <td id="high"></td>
+        </tr>
+    </table>
+
+    <label id="prompt"></label>
+    <input type="text" id="input">
+</body>
+</html>
