@@ -1,0 +1,28 @@
+.big{
+    height: 100px;
+    width: 100px;
+    background-color: blue;
+}
+
+.small{
+    height: 50px;
+    width: 50px;
+    background-color: green;
+}
+
+.pink{
+    background: pink;
+}
+
+.yellow{
+    background-color: yellow;
+}
+
+.radio{
+    border-radius: 20px;
+}
+
+.upcase{
+    text-align: center;
+    text-transform: uppercase;
+}

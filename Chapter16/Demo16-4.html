@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>查询计算样式</title>
+    <style>
+        #test::before {
+            content: '';
+            width: 20px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <!-- getComputedStyle()
+    元素的计算样式(computedStyle)是一组在显示元素时实际使用的属性值，也是用一个 CSSStyleDeclaration对象来表示的，
+    但计算样式是只读的，主要通过getComputedStyle()方法实现        
+    getComputedStyle()方法接收两个参数：要取得计算样式的元素和一个伪元素字符串。如果不需要伪元素信息，第二个参数可以是null。
+    getComputedStyle()方法返回一个CSSStyleDeclaration对象，其中包含当前元素的所有计算的样式 -->
+    <div id="test" style="width: 100px;"></div>
+    <script>
+        console.log(document.defaultView.getComputedStyle(test).width);
+        console.log(window.getComputedStyle(test).width);
+        console.log(getComputedStyle(test).width);
+    </script>
+
+    <!-- 伪元素
+　　第二个参数代表伪元素字符串，包括":before"、":after"、":first-line"等，如果设置为null或省略不写，则返回自身元素的CSSStyleDeclaration对象 -->
+    <script>
+        console.log(getComputedStyle(test, ':before').width);
+    </script>
+</body>
+</html>

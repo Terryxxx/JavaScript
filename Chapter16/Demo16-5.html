@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>脚本化CSS类</title>
+    <link rel="stylesheet" href="Demo16-5.css" type="text/css">
+</head>
+<body>
+    <!-- style -->
+    <!-- 我们在改变元素的少部分样式时，一般会直接改变其行间样式 -->
+    <div id="test" style="height:100px;width:100px;background-color:blue;"></div>
+    <script>
+        test.onclick = function() {
+            test.style.backgroundColor = 'green';
+        }
+    </script>
+    <br>
+    <!-- cssText -->
+    <!-- 改变元素的较多样式时，可以使用cssText -->
+    <div id="test2" style="height:100px;width:100px;background-color:blue;"></div>
+    <script>
+        test2.onclick = function(){
+            test2.style.cssText = 'height:50px;width:50px;background-color:pink';
+        }
+    </script>
+    <br>
+
+    <!-- CSS类 -->
+    <!-- 更常用的是使用css类，将更改前和更改后的样式提前设置为类名。只要更改其类名即可 -->
+    <div id="test3" class="big"></div>
+    <script>
+        test3.onclick = function(){
+            test3.className = 'small';
+        }
+    </script>
+    <br>
+    <!-- classList -->
+    <!-- 如果要改变多个类名，使用classList更为方便 -->
+    <div id="test4" class="big pink radio upcase">aaaa</div>
+    <br>
+    <button id="btn1">大小变化</button>
+    <button id="btn2">颜色变化</button>
+    <button id="btn3">删除一个类</button>
+    <button id="btn4">添加一个类</button>
+    <button id="btn5">删除多个类</button>
+    <button id="btn6">添加多个类</button>
+    <script>
+        btn1.onclick = function(){
+            test4.classList.toggle('small');
+        }
+        btn2.onclick = function(){
+            test4.classList.toggle('yellow');
+        }
+        btn3.onclick = function(){
+            test4.classList.remove('radio')
+        }
+        btn4.onclick = function(){
+            test4.classList.add('radio')
+        }
+        btn5.onclick = function(){
+            test4.classList.remove('radio', 'upcase')
+        }
+        btn6.onclick = function(){
+            test4.classList.add('radio','upcase')
+        }
+    </script>
+</body>
+</html>

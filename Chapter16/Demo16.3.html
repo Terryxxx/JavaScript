@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>脚本化行内样式</title>
+</head>
+
+<body>
+    <div id="test" style="height:40px; width:40px; background-color:blue; float:left;"></div>
+
+    <!-- element元素节点提供style属性，用来操作CSS行间样式，style属性指向cssStyleDeclaration对象 -->
+    <script>
+        console.log(test.style instanceof CSSStyleDeclaration);
+    </script>
+
+    <!--style属性用来读写页面元素的行内CSS样式
+　　如果读取没有设置过的行间样式将返回空字符串''
+　　如果设置的行间样式不符合预定格式，并不会报错，而是静默失败
+　　[注意]IE8-浏览器支持给属性设置值时不带单位 -->
+    <script>
+        console.log(test.style.height); //40px;
+        test.style.height = '30px';
+        console.log(test.style.height);
+
+        test.style.height = '20';
+        //IE8-浏览器返回'20px'，因为IE8-浏览器支持给属性设置值时不带单位；而其他浏览器仍然返回'30px'
+        console.log(test.style.height);
+
+        console.log(test.style.position); // ''
+    </script>
+
+    <!-- 如果一个CSS属性名包含一个或多个连字符，CSSStyleDeclaration属性名的格式应该是移除连字符，将每个连字符后面紧接着的字母大写 -->
+    <script>
+        console.log(test.style.backgroundColor);
+    </script>
+
+    <!-- 理论上，有一个不能直接转换的CSS属性是float。因为，float是javascript中的保留字，不能用作属性名,
+    但实际上，经过测试，直接使用float在各个浏览器中都有效 -->
+    <script>
+        console.log(test.style.float);
+    </script>
+    <!-- 作为推荐，要访问float属性，应该使用cssFloat -->
+    <!-- [注意]IE8-浏览器不支持cssFloat，但IE浏览器支持styleFloat -->
+    <script>
+        //IE8-浏览器返回undefined，其他浏览器返回'left'
+        console.log(test.style.cssFloat); //'left'
+        //IE浏览器返回'left'，其他浏览器返回undefined
+        console.log(test.style.styleFloat);
+    </script>
+
+    <!-- 特性操作 -->
+
+    <!-- 其实，如果操作行间样式，
+    可以使用元素节点的特性操作方法hasAttribute()、getAttribute()、setAttribute()、removeAttribute()等，来操作style属性 -->
+    <div id="test2" style="height:40px;width:40px;"></div>
+    <script>
+        console.log(test2.hasAttribute('style')); //true
+        console.log(test2.getAttribute('style'));
+
+        test2.setAttribute('style', 'height:10px;');
+        console.log(test2.getAttribute('style'));
+
+        test2.removeAttribute('style');
+        console.log(test2.hasAttribute('style')); //false
+        console.log(test2.getAttribute('style')); //null
+    </script>
+
+    <!-- 属性 -->
+    <!-- cssText -->
+    <!-- 通过cssText属性能够访问到style特性中的CSS代码。在读模式下，
+        cssText返回浏览器对style特性中CSS代码的内部表示；在写模式中，赋给cssText的值会重写整个style特性的值
+　　设置cssText是为元素应用多项变化最快捷的方法，因为可以一次性应用所有变化
+　　[注意]IE8-浏览器返回的属性名是全大写的 -->
+    <div id="test3" style="height:40px;width:40px;"></div>
+    <script>
+        //IE8-浏览器返回'HEIGHT: 40px; WIDTH: 40px;'，其他浏览器返回'height: 40px; width: 40px;'
+        console.log(test3.style.cssText);
+        test3.style.cssText = 'height:20px';
+        console.log(test3.style.cssText);
+    </script>
+
+    <!-- length
+
+    　　length属性返回内联样式中的样式个数
+
+    　　[注意]IE8-浏览器不支持 -->
+    <script>
+        console.log(test3.style.length); //1
+    </script>
+
+    <!-- getPropertyValue() -->
+    <!-- getPropertyValue()方法返回给定属性的字符串值 -->
+    <div id="test4" style="height: 40px;width: 40px;background-color: pink;"></div>
+    <script>
+        console.log(test4.style.getPropertyValue('background-color'));
+        console.log(test4.style.backgroundColor);
+        console.log(test4.style['background-color']);
+        console.log(test4.style['backgroundColor']);
+    </script>
+
+    <!-- getPropertyPriority -->
+    <!-- 如果给定的属性使用了!important设置，则返回"important"；否则返回空字符串 -->
+    <div id="test5" style="height: 40px!important;width: 40px;background-color: pink;"></div>
+    <script>
+        console.log(test5.style.getPropertyPriority('height')); //important
+        console.log(test5.style.getPropertyPriority('width')); // ''
+    </script>
+
+
+    <!-- setProperty -->
+    <!-- setProperty(propertyName,value,priority)方法将给定属性设置为相应的值，并加上优先级标志("important"或一个空字符串)，该方法无返回值 -->
+    <div id="test6" style="height: 40px;width: 40px;background-color: pink;"></div>
+    <script>
+        console.log(test6.style.height); //'40px'
+        test6.style.setProperty('height', '20px', 'important');
+        console.log(test6.style.height); //'20px'
+        test6.style.setProperty('height', '30px');
+        //safari浏览器返回'20px'，设置过!important后，再设置非important的属性值则无效
+        //其他浏览器返回'30px'
+        console.log(test6.style.height);
+    </script>
+</body>
+
+</html>
